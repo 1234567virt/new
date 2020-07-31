@@ -1,0 +1,42 @@
+#name {
+    font: 16px solid green;
+    font-style: italic;
+}
+
+.ok {
+    font-style: italic;
+    color: green;
+}
+
+.err {
+    color: red;
+    font-style: bold;
+
+}
+
+table {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    border: 1px solid grey;
+    margin:0 auto;
+    border-spacing: 0 2px;
+    border-collapse: collapse;
+    color: #686461;
+}
+
+tr {
+    border: 2px solid black;
+    border-radius: 6px;
+}
+
+td {
+    color: black;
+    border-spacing: 0 2px;
+    border: 1px solid black;
+    padding: 3px;
+}
+
+th {
+    background: #8FD4C1;
+    border: 1px solid black;
+    border-radius: 11px;
+}

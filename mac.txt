@@ -1,0 +1,37 @@
+rtsp://192.168.1.196:554/user=admin&amp;password=awdrgy&amp;channel=5&amp;stream=0.sdp
+
+ <camera id="19" name="Imperial post" http://89.107.120.242:8081/cgi>
+
+ <camera id="58" name="ÕÀÉ ÂÅÉ 8" rtsp://62.176.9.165:554/user=admin&amp;password=162534&amp;channel=8&amp;stream=0?.sdp
+
+    <camera id="61" name="ÕÀÉ ÂÅÉ 3">rtsp://62.176.9.165:554/user=admin&amp;password=162534&amp;channel=3&amp;stream=0?.sdp</videosourcestring>
+
+    <camera id="64" name="Camera 34" description=""         <videosourcestring>rtsp://62.176.9.165:554/user=admin&amp;password=162534&amp;channel=1&amp;stream=0?.sdp
+
+ <camera id="66" name="Camera 23" description="" rtsp://192.168.1.196:554/user=admin&amp;password=awdrgy&amp;channel=1&amp;stream=0.sdp>
+   
+<camera id="68" name="Camera 22" 
+rtsp://31.173.17.167:554/user=admin&amp;password=12LinuX21&amp;channel=1&amp;stream=0.sdp>
+
+    <camera id="71" name="Camera 23 (2)       rtsp://oper:op35879256@188.170.5.117:54616/Streaming/channels/701
+active="true" >
+    
+    <camera id="73" name="Camera 23 (3)" 
+ rtsp://oper:op35879256@188.170.5.117:54616/Streaming/channels/1301>
+   
+    <camera id="74" name="Camera 23 (4)" rtsp://62.176.9.165:554/user=admin&amp;password=162534&amp;channel=13&amp;stream=0?.sdp>
+    
+    <camera id="81" name="Camera 19 (1)" rtsp://62.176.9.165:554/user=admin&amp;password=162534&amp;channel=6&amp;stream=0?.sdp
+    
+    <camera id="90" name="Camera 16" >
+rtsp://oper:op35879256@188.170.5.117:54616/Streaming/channels/601
+</camera>
+
+    <camera id="97" name="Camera 23 (1)"   rtsp://62.176.9.165:554/user=admin&amp;password=162534&amp;channel=11&amp;stream=0?.sdp
+
+    <camera id="111" name="Camera 20"
+rtsp://31.173.23.45:554/user=admin&amp;password=12LinuX21&amp;channel=1&amp;stream=0.sdp
+
+    <camera id="114" name="Camera 16 (2)>rtsp://31.173.23.45:554/user=admin&amp;password=12LinuX21&amp;channel=1&amp;stream=0.sdp
+    <camera id="115" name="Camera 14>
+        <videosourcestring>http://85.236.7.114:8083/cgi-bin/view/image?pro_0  >
