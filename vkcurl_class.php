@@ -1,4 +1,6 @@
 <?php
+//function status($username,$host){
+ // $username='admin';
   $ch=curl_init();
         curl_setopt($ch, CURLOPT_PORT, $host['port']);
         if($host['auth']==true)
@@ -15,4 +17,5 @@
         $sec=curl_getinfo($ch,CURLINFO_STARTTRANSFER_TIME);
         $htm=explode(" ",$html);
         curl_close($ch);
-        ?>
+    //    return $htm;
+     // }?>

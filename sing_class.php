@@ -19,4 +19,10 @@ function translit($text){
    $name = preg_replace('/\d/', '', $singl); 
 return $name;
 }
+
+function connects($host,$user,$passwd,$bd){
+   $link=mysqli_connect($host,$user,$passwd,$bd) or die(mysql_error());
+    return $link; 
+    }
+ 
 ?>

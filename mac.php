@@ -15,7 +15,7 @@ require_once 'sing_class.php';
             <th>Размер</th>
         </tr>
         <?php
-$text=file_get_contents('https://ruq.hotmo.org/collection/2794');
+$text=file_get_contents('https://ruq.hotmo.org/artist/846');
 $array=phpQuery::newDocument($text);
 $content=$array->find('a.track__download-btn');
 
