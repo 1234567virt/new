@@ -1,7 +1,7 @@
 <link rel='stylesheet' type="text/css" href="vkcurl.css">
 
 <head>
-
+    <meta http-equiv="Refresh" content='1000'>
 </head>
 <?php
 require_once 'int.php';
@@ -66,5 +66,9 @@ else
 }
 
 }
-
+$array=staticPower('1',$time);
+var_dump($array);
+foreach($array as $key=>$val){
+    echo $val['Object']."->".$val['ping']."<br>";
+}
 ?>
