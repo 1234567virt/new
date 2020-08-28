@@ -14,10 +14,10 @@ $command='substr()';
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     $result = curl_exec($curl);
     curl_close($curl);
+    
     $isWinCharset = mb_check_encoding($result, "windows-1251");
     if ($isWinCharset) {
         $result = iconv("windows-1251", "UTF-8", $result);
-   // echo $result;
     }
     $contents=findFunct($result,'<index>','</index>');
 ?>

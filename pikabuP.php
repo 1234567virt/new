@@ -32,10 +32,11 @@ $curl = curl_init();
        // $price=validation($price);
          if(!empty($code)){
              echo $img."/<i>".$product."</i>-<b>".$code."</b><i>.".$price."/</i>".substr($time,-10)."<br>";
-             product($img,$product,$code,'-',0,$time);
+             product($img,$product,$code,'-',$price,$time);
           }
-    
-      }
+ 
+
+        }
 //parser($result);
 
 

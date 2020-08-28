@@ -70,3 +70,5 @@
 [Sun Aug 02 01:01:13.654251 2020] [php7:error] [pid 9353] [client 127.0.0.1:57786] script '/opt/lampp/htdocs/parse.sql/phpmyadmin.php' not found or unable to stat
 [Sun Aug 02 01:21:31.384608 2020] [php7:error] [pid 9357] [client 127.0.0.1:59248] script '/opt/lampp/htdocs/parse.sql/myadminphp.php' not found or unable to stat
 [Sun Aug 02 01:21:45.156077 2020] [php7:error] [pid 9522] [client 127.0.0.1:59272] script '/opt/lampp/htdocs/parse.sql/phpmyadmin.php' not found or unable to stat
+[Thu Aug 06 13:30:16.285351 2020] [php7:error] [pid 3493] [client 127.0.0.1:47164] script '/opt/lampp/htdocs/parse.sql/parse.php' not found or unable to stat
+[Thu Aug 13 16:59:20.854044 2020] [php7:error] [pid 6040] [client 127.0.0.1:58036] script '/opt/lampp/htdocs/parse.sql/curl1.php' not found or unable to stat

@@ -5,16 +5,20 @@ $value=rtrim($value);
 $value=substr($value,$start,$leght);
 return $value;
 }
-function validationTime($value,$charStart,$charStop){
-  $time=trim($value);
-  $time=str_replace($charStart,$charStop,$time);
-  //$leght=strlen($time);
-      if(mb_strpos($time,'СЕГОДНЯ')!==false){
-         $time=date('Y-m-d');
+function validationTime($value,$charStart='',$charStop=''){
+   if($charStart==='' || $charStop===''){
+      $time=date('Y-m-d');
    }
-      else{
-         $date=new DateTime($time);
-         $time=$date->format('Y-m-d');
+   else{
+      $time=trim($value);
+      $time=str_replace($charStart,$charStop,$time);
+         if(mb_strpos($time,'СЕГОДНЯ')!==false){
+           $time=date('Y-m-d');
+         }
+         else{
+           $date=new DateTime($time);
+           $time=$date->format('Y-m-d');
+         }
    }
   return $time;
 }
@@ -71,4 +75,6 @@ function parsePrice($value){
     }
 return $result;
 }
+
+function (){}
    ?>
