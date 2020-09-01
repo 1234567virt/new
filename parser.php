@@ -37,17 +37,16 @@ for($i=1;$i<100;$i++)
       $price=$value->find("span .thread-price")->text();
       $price=validation($price,0,-3);
       //$price=parsePrice()
-      if(!empty($name) && !empty($code)){
-        if(!isset($time) || empty($time)){
+       if(empty($time)){
             $time=validationTime($time);
         }
+      if(!empty($name) && !empty($code)){
+      $time=validationTime($time,'/','-');
         echo $i."/<h3 style='display:inline;'>".$img."-".$name."</h3>-<span>".$price."</span><b> ".$code."/</b>"."/".$time."<br>";
        product($img,$name,$code,$brend,$price,$time);
       }
     
-      else{
-        
-      }
+   
     }
 
 }

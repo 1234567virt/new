@@ -25,7 +25,8 @@ function validationTime($value,$charStart='',$charStop=''){
 
 function connects($host,$user,$passwd,$bd){
    $link=mysqli_connect($host,$user,$passwd,$bd) or die(mysql_error());
-return $link; 
+mysqli_set_charset($link,"utf8");
+      return $link; 
 }
 
 function clear($val){
@@ -76,5 +77,4 @@ function parsePrice($value){
 return $result;
 }
 
-function (){}
    ?>
