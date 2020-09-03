@@ -38,10 +38,11 @@ for($i=1;$i<100;$i++)
       $price=validation($price,0,-3);
       //$price=parsePrice()
        if(empty($time)){
-            $time=validationTime($time);
+           // $time=validationTime($time);
+            $time=date('Y-m-d');
         }
       if(!empty($name) && !empty($code)){
-      $time=validationTime($time,'/','-');
+     $time=validationTime($time,'/','.');
         echo $i."/<h3 style='display:inline;'>".$img."-".$name."</h3>-<span>".$price."</span><b> ".$code."/</b>"."/".$time."<br>";
        product($img,$name,$code,$brend,$price,$time);
       }

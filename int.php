@@ -6,10 +6,10 @@ $value=substr($value,$start,$leght);
 return $value;
 }
 function validationTime($value,$charStart='',$charStop=''){
-   if($charStart==='' || $charStop===''){
-      $time=date('Y-m-d');
-   }
-   else{
+  // if($charStart==='' || $charStop===''){
+  //    $time=date('Y-m-d');
+ //  }
+  // else{
       $time=trim($value);
       $time=str_replace($charStart,$charStop,$time);
          if(mb_strpos($time,'СЕГОДНЯ')!==false){
@@ -19,7 +19,7 @@ function validationTime($value,$charStart='',$charStop=''){
            $date=new DateTime($time);
            $time=$date->format('Y-m-d');
          }
-   }
+  // }
   return $time;
 }
 
@@ -77,4 +77,25 @@ function parsePrice($value){
 return $result;
 }
 
+function cronDel(){
+   $link=connects('localhost','serj','22121987','cscart');
+   $countQuery="select `product` from `product` where `date`=DATE_ADD(CURDATE(), INTERVAL -1 DAY)";
+   $result=mysqli_query($link,$countQuery) or die("Ошибка". mysqli_error());
+   if($result=mysqli_num_rows($result)>0){
+      $sql="DELETE FROM `product` WHERE `product`.`date` = DATE_ADD(CURDATE(), INTERVAL -1 DAY)";
+      mysqli_query($link,$sql) or die("Ошибка". mysqli_error());
+        return 'Удаленно '.$result." записей";
+   }
+   else{
+      return 'Отчистка не нужна';
+   }
+ 
+}
+//unction cronCount(){
+   //$link=connects('localhost','serj','22121987','cscart');
+   //$sql="select  FROM `product` WHERE `product`.`date` = DATE_ADD(CURDATE(),INTERVAL -1 DAY)";
+   //$sql="select count(`product`.`date`) from `product` where `date`=DATE_ADD(CURDATE(), INTERVAL -1 DAY)";
+  // $result=mysqli_query($link,$sql);
+   //return $result; 
+//}
    ?>
