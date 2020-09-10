@@ -67,14 +67,18 @@ function parsePrice($value){
      $result=preg_replace("/[^0-9]/i", ' ', $result); 
     }
   elseif ($lenght=strpos($value,'%')){
-     //$len=$lenght-2;
-   $result=substr($value,$lenght-2,3);
-   $result=rtrim($result);
+    $result=substr($value,$lenght-2,2);
+
+    $result=rtrim($result);
+    if($result=='!'){
+          $result=substr($value,$lenght-1,1);
+      }
     }
     else{
-       $result='0';
+       $result=0;
     }
-return $result;
+    
+return (int)$result;
 }
 
 function cronDel(){
@@ -91,11 +95,5 @@ function cronDel(){
    }
  
 }
-//unction cronCount(){
-   //$link=connects('localhost','serj','22121987','cscart');
-   //$sql="select  FROM `product` WHERE `product`.`date` = DATE_ADD(CURDATE(),INTERVAL -1 DAY)";
-   //$sql="select count(`product`.`date`) from `product` where `date`=DATE_ADD(CURDATE(), INTERVAL -1 DAY)";
-  // $result=mysqli_query($link,$sql);
-   //return $result; 
-//}
+
    ?>
