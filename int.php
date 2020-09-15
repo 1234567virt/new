@@ -5,6 +5,17 @@ $value=rtrim($value);
 $value=substr($value,$start,$leght);
 return $value;
 }
+function imgLoad($url,$nm){
+    $ch = curl_init($url);  
+    curl_setopt($ch, CURLOPT_HEADER, 0);  
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);  
+    curl_setopt($ch, CURLOPT_BINARYTRANSFER,1);  
+    $out = curl_exec($ch);  
+    $image_sv ='./images/'.$nm.'.png';  
+    $img_sc = file_put_contents($image_sv, $out);  
+    curl_close($ch);  
+}
+
 function validationTime($value,$charStart='',$charStop=''){
   // if($charStart==='' || $charStop===''){
   //    $time=date('Y-m-d');
@@ -45,19 +56,13 @@ function staticPower($status,$time){
     $start=date("Y-m-d");
     $start=$start.' 00:00:00';
     $array=mysqli_query($link,"Select * from `time` where `time` Between $start  and $time ");
-   // while($row=mysqli_fetch_assoc($result)){
-    //$array=$row;
-  // }
-    return $array;
+return $array;
 }  
 
 
 function product($src,$product,$code,$brend,$price,$date){
-
    $link=connects('localhost','serj','22121987','cscart');
-
    $sql="INSERT INTO `product` (`id`,`src`, `product`, `code`, `brendmarket`, `price`, `date` ) VALUES (NULL,'$src', '$product', '$code', '$brend','$price','$date')";
-  // echo $sql;
    mysqli_query($link,$sql);
    }
 
@@ -93,7 +98,6 @@ function cronDel(){
    else{
       return 'Отчистка не нужна';
    }
- 
-}
+ }
 
    ?>

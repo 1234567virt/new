@@ -8,7 +8,7 @@ set_time_limit(0);
 for($i=1;$i<30;$i++)
 {
   $addr="https://www.pepper.ru/new"."?page=".$i."&layout=text";
-  //$addr=$addr."?page=".$i."&layout=text";
+  
   echo "<h3 style='margin-top:15px;margin-bottom:10px;margin-left:50%;'>json.".$i."-".$addr."</h3>";
   $curl = curl_init();
     curl_setopt($curl,CURLOPT_URL,$addr);

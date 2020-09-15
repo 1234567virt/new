@@ -2,6 +2,7 @@
 set_time_limit(0);
 require_once 'phpQuery.php';
 require_once 'int.php';
+require_once 'ai.php';
 $addr="https://promokod.pikabu.ru/new";
 
 $curl = curl_init();
@@ -12,7 +13,6 @@ $curl = curl_init();
     curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     $result = curl_exec($curl);
-   // echo $result;
     curl_close($curl);
     $array=phpQuery::newDocument($result);
     $content=$array->find('.item-tovars');
@@ -21,13 +21,17 @@ $curl = curl_init();
         $product=$item->find(".click-coupon")->text();
         $img=$item->find('img')->attr('src');
         $code=$item->find(".open-coupon ")->attr('data-code');
+        //echo $key.".".$code."<br>";
         $time=$item->find(".data")->text();
         $time=substr($time,-10);
         $time=validationTime($time,'.','.');
         $price=parsePrice($product);
          if(!empty($code)){
-             echo $img."/<i>".$product."</i>-<b>".$code."</b><i>.".$price."/</i>".$time."<br>";
-             product($img,$product,$code,'-',$price,$time);
+             imgLoad($img,$key);
+             echo $key."<br>";
+             $market=ai($key);
+             echo $img."/<i>".$product."</i>-<b>".$code."</b><i>.".$price."/</i>".$time."/".$market."<br>";
+             product($img,$product,$code,$market,$price,$time);
  
           }
        }
