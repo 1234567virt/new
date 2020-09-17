@@ -25,9 +25,8 @@ for($i=1;$i<30;$i++)
     {
       $value= pq($val);
       $name=$value->find(".thread-image")->attr('alt');
-      $img=$value->find('img')->attr('src');
       $time=$value->find(".hide--toW3 span")->text();
-       $code=$value->find("input")->attr('value');
+      $code=$value->find("input")->attr('value');
       $brend=$value->find(".link")->text();
       $price=$value->find("span .thread-price")->text();
       $price=validation($price,0,-3);
@@ -39,8 +38,8 @@ for($i=1;$i<30;$i++)
               $time=validationTime($time,'/','.');
           }
         (int)$price=str_replace(' ', '',$price);
-         echo $i.".".$key."/<h3 style='display:inline;'>".$name."</h3>-<span>".$price."</span><b> ".$code."/</b>"."/".$time." <i style='color:green'>Код найден</i><br>";
-         product($img,$name,$code,$brend,$price,$time);
+         echo $i.".".$key."/<h3 style='display:inline;'>".$name."</h3>-<span>".$price." rub</span><b> ".$code."/</b>"."/".$time." <i style='color:green'>Код найден</i><br>";
+         product('rub',$name,$code,$brend,$price,$time);
       }
       else{
         echo $i.".".$key.'/fack- '.$name."/".$code."<span style='color:red;border:1px solid black'>Нет кода</span><br>";

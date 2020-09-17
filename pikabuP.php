@@ -21,19 +21,19 @@ $curl = curl_init();
         $product=$item->find(".click-coupon")->text();
         $img=$item->find('img')->attr('src');
         $code=$item->find(".open-coupon ")->attr('data-code');
-        //echo $key.".".$code."<br>";
         $time=$item->find(".data")->text();
         $time=substr($time,-10);
         $time=validationTime($time,'.','.');
         $price=parsePrice($product);
-         if(!empty($code)){
+        if(!empty($code)){
              imgLoad($img,$key);
-             echo $key."<br>";
+           
              $market=ai($key);
-             echo $img."/<i>".$product."</i>-<b>".$code."</b><i>.".$price."/</i>".$time."/".$market."<br>";
-             product($img,$product,$code,$market,$price,$time);
+             $market=validationMarket($market);
+             echo $key."/<i>".$product."</i>-<b>".$code."</b><i>.".$price['number'].$price['mer']."/</i>".$time."/".$market."<br>";
+             product($price['mer'],$product,$code,$market,$price['number'],$time);
  
-          }
+         }
        }
 
 ?>

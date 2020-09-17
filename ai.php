@@ -5,9 +5,9 @@ function ai($img){
   // 3.	Read taskId from xml
   // https://ocrsdk.com/documentation/faq/#faq3
   // Name of application you created
-  $applicationId = '24d8dcc8-645c-45c2-ac28-62d6dcbb19fb';
+  $applicationId ="53ae1c04-67e5-461f-abd5-1865f19de3b7";
   // Password should be sent to your e-mail after application was created
-  $password = 'sk49J6Q11kaaAkZsdz6VEaN7';
+  $password = 'fMca8BjxQZvTx9VzD9ltv5Am';
   
   // URL of the processing service. Change to http://cloud-westus.ocrsdk.com
   $serviceUrl = 'http://cloud-eu.ocrsdk.com';

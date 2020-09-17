@@ -69,8 +69,10 @@ function product($src,$product,$code,$brend,$price,$date){
 function parsePrice($value){
   if($lenght=stripos($value,'рублей')){
      $result=substr($value,0,$lenght);
-     $result=preg_replace("/[^0-9]/i", ' ', $result); 
-    }
+     $result=preg_replace("/[^0-9]/i", '', $result); 
+    //  $result[1]='rub'; 
+      $array=array('number'=>$result,'mer'=>'rub');
+   }
   elseif ($lenght=strpos($value,'%')){
     $result=substr($value,$lenght-2,2);
 
@@ -78,12 +80,15 @@ function parsePrice($value){
     if($result=='!'){
           $result=substr($value,$lenght-1,1);
       }
-    }
+      //$result[1]='%';
+      $array=array('number'=>$result,'mer'=>'%');
+   }
     else{
-       $result=0;
+       //$result=0;
+       $array=array('number'=>0,'mer'=>'-');
     }
     
-return (int)$result;
+return $array;
 }
 
 function cronDel(){
@@ -99,5 +104,16 @@ function cronDel(){
       return 'Отчистка не нужна';
    }
  }
-
+function validationMarket($value){
+   $value=trim($value);
+   $english=mb_ereg_replace("/[а-яёА-ЯЁ0-9]/i", '', $value);
+   $result=mb_ereg_replace("/(.*?)\{.*?\}\s?(.*?)/is", '', $english);
+   (string)$result=rtrim($english);
+   $lenght=mb_strlen($result);
+   if($lenght<2){
+      $russian=mb_ereg_replace("/[a-zA-Z0-9]/i", '', $value);
+      $result=mb_ereg_replace("/(.*?)\{.*?\}\s?(.*?)/is", '', $russian); 
+    }
+  return $result;
+}
    ?>
