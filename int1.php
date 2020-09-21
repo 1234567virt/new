@@ -17,7 +17,11 @@ function imgLoad($url,$nm){
 }
 
 function validationTime($value,$charStart='',$charStop=''){
-   $time=trim($value);
+  // if($charStart==='' || $charStop===''){
+  //    $time=date('Y-m-d');
+ //  }
+  // else{
+      $time=trim($value);
       $time=str_replace($charStart,$charStop,$time);
          if(mb_strpos($time,'СЕГОДНЯ')!==false){
            $time=date('Y-m-d');
@@ -26,6 +30,7 @@ function validationTime($value,$charStart='',$charStop=''){
            $date=new DateTime($time);
            $time=$date->format('Y-m-d');
          }
+  // }
   return $time;
 }
 
@@ -55,9 +60,9 @@ return $array;
 }  
 
 
-function product($src,$product,$code,$brend,$url,$price,$date){
+function product($src,$product,$code,$brend,$price,$date){
    $link=connects('localhost','serj','22121987','cscart');
-   $sql="INSERT INTO `product` (`id`,`src`, `product`, `code`, `brendmarket`,`url`, `price`, `date` ) VALUES (NULL,'$src', '$product', '$code', '$brend','$url','$price','$date')";
+   $sql="INSERT INTO `product` (`id`,`src`, `product`, `code`, `brendmarket`, `price`, `date` ) VALUES (NULL,'$src', '$product', '$code', '$brend','$price','$date')";
    mysqli_query($link,$sql);
    }
 
@@ -110,21 +115,5 @@ function validationMarket($value){
       $result=mb_ereg_replace("/(.*?)\{.*?\}\s?(.*?)/is", '', $russian); 
     }
   return $result;
-}
-function postIp($url){
-   $error='bad ip';
-       $char=strrchr($url,'/');
-       $url=preg_replace('|[/]|','',$char);
-       $ip=gethostbyname ('www.'.$url.'.ru');
-       $ip=preg_replace('/[a-z]/i','',$ip);
-       if(!empty($ip) && (4<strlen($ip) && strlen($ip)<15)){
-         return $ip;
-      }
-      else if(preg_match('/^www/',$ip)==true || empty($ip)){
-         return $error;
-      }
-      else{
-         return $error;
-      }
 }
    ?>

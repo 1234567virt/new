@@ -18,21 +18,26 @@ $curl = curl_init();
     $content=$array->find('.item-tovars');
     foreach($content as $key=>$product){
         $item=pq($product);
-        $product=$item->find(".click-coupon")->text();
-        $img=$item->find('img')->attr('src');
         $code=$item->find(".open-coupon ")->attr('data-code');
-        $time=$item->find(".data")->text();
-        $time=substr($time,-10);
-        $time=validationTime($time,'.','.');
-        $price=parsePrice($product);
         if(!empty($code)){
-             imgLoad($img,$key);
-           
-             $market=ai($key);
-             $market=validationMarket($market);
-             echo $key."/<i>".$product."</i>-<b>".$code."</b><i>.".$price['number'].$price['mer']."/</i>".$time."/".$market."<br>";
-             product($price['mer'],$product,$code,$market,$price['number'],$time);
- 
+          $product=$item->find(".click-coupon")->text();
+          $url=$item->find('a')->attr('href');
+          $img=$item->find('img')->attr('src');
+          $time=$item->find(".data")->text();
+          $time=substr($time,-10);
+          $time=validationTime($time,'.','.');
+           $price=parsePrice($product);
+          imgLoad($img,$key);
+         // $market=ai($key);
+          $market=validationMarket('market');
+          $ip=postIp($url);
+           if($ip!='bad ip'){
+             echo $key."/<i>".$product."</i>-<b>".$code."</b><i>.".$price['number'].$price['mer']."/</i>".$time."<br>".$market."-".$ip."<br>";
+             product($price['mer'],$product,$code,$market,$ip,$price['number'],$time);
+           }
+           else{
+             print $market.'Данные отсутствуют';
+           }
          }
        }
 
