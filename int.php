@@ -31,8 +31,8 @@ function validationTime($value,$charStart='',$charStop=''){
 
 function connects($host,$user,$passwd,$bd){
    $link=mysqli_connect($host,$user,$passwd,$bd) or die(mysql_error());
-mysqli_set_charset($link,"utf8");
-      return $link; 
+   mysqli_set_charset($link,"utf8");
+return $link; 
 }
 
 function clear($val){
@@ -111,20 +111,28 @@ function validationMarket($value){
     }
   return $result;
 }
-function postIp($url){
-   $error='bad ip';
-       $char=strrchr($url,'/');
+function postIp($url,$domen='false'){
+      $char=strrchr($url,'/');
        $url=preg_replace('|[/]|','',$char);
-       $ip=gethostbyname ('www.'.$url.'.ru');
-       $ip=preg_replace('/[a-z]/i','',$ip);
-       if(!empty($ip) && (4<strlen($ip) && strlen($ip)<15)){
-         return $ip;
-      }
-      else if(preg_match('/^www/',$ip)==true || empty($ip)){
-         return $error;
+      if($domen==='ru'){
+          $ip=gethostbyname ('www.'.$url.'.ru');
       }
       else{
-         return $error;
+         $ip=gethostbyname ('www.'.$url);
       }
+      $ip=preg_replace('/[a-z]/i','',$ip);
+      $lenght=strlen($ip);
+       if(7<$lenght && $lenght<17){
+         //return $lenght.'/';
+         $ip='bad ip';
+      }
+      //else
+       if(preg_match('/^www/',$ip)==true || empty($ip)){
+          $ip='bad ip';
+      }
+      else{
+        //return $ip;
+      }
+      return $ip;
 }
    ?>
