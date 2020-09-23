@@ -1,4 +1,5 @@
 <?php
+
 function ai($img){
   // 1. Send image to Cloud OCR SDK using processImage call
   // 2.	Get response as xml

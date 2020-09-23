@@ -27,16 +27,16 @@ $curl = curl_init();
           $time=substr($time,-10);
           $time=validationTime($time,'.','.');
            $price=parsePrice($product);
-          imgLoad($img,$key);
-         // $market=ai($key);
+           imgLoad($img,$key);
+          $market=ai($key);
           $market=validationMarket('market');
-          $ip=postIp($url);
+          $ip=postIp($url,'ru');
            if($ip!='bad ip'){
-             echo $key."/<i>".$product."</i>-<b>".$code."</b><i>.".$price['number'].$price['mer']."/</i>".$time."<br>".$market."-".$ip."<br>";
+            echo $key."/<i>".$product."</i>-<b>".$code."</b><i>.".$price['number'].$price['mer']."/</i>".$time."<br>".$market."-".$ip."<br>";
              product($price['mer'],$product,$code,$market,$ip,$price['number'],$time);
            }
            else{
-             print $market.'Данные отсутствуют';
+             print $market.'- Данные отсутствуют';
            }
          }
        }

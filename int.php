@@ -65,8 +65,7 @@ function parsePrice($value){
   if($lenght=stripos($value,'рублей')){
      $result=substr($value,0,$lenght);
      $result=preg_replace("/[^0-9]/i", '', $result); 
-    //  $result[1]='rub'; 
-      $array=array('number'=>$result,'mer'=>'rub');
+     $array=array('number'=>$result,'mer'=>'rub');
    }
   elseif ($lenght=strpos($value,'%')){
     $result=substr($value,$lenght-2,2);
@@ -75,11 +74,9 @@ function parsePrice($value){
     if($result=='!'){
           $result=substr($value,$lenght-1,1);
       }
-      //$result[1]='%';
       $array=array('number'=>$result,'mer'=>'%');
    }
     else{
-       //$result=0;
        $array=array('number'=>0,'mer'=>'-');
     }
     

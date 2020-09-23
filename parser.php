@@ -36,11 +36,14 @@ for($i=1;$i<30;$i++)
           $price=validation($price,0,-3);
           $brend=$value->find(".link")->text();
          (int)$price=str_replace(' ', '',$price);
-          $char=strrchr($url,'/');
-          $url=preg_replace('|[/]|','',$char);
-          $ip=gethostbyname ('www.'.$url);
-          echo $i.".".$key."/<h3 style='display:inline;'>".$name."</h3>-<span>".$price." rub</span><b> ".$code."/</b>"."/".$time."/".$ip." <i style='color:green'>Код найден</i><br>";
-         product('rub',$name,$code,$brend,$ip,$price,$time);
+          $ip=postIp($url);
+          if($ip!='bad ip'){
+            echo $i.".".$key."/<h3 style='display:inline;'>".$name."</h3>-<span>".$price." rub</span><b> ".$code."/</b>"."/".$time."/".$ip." <i style='color:green'>Код найден</i><br>";
+            product('rub',$name,$code,$brend,$ip,$price,$time);
+          }
+          else{
+            echo $i.'- Некоректный ip';
+          }
       }
       else{
         echo $i.".".$key.'/fack- '.$name."/".$code."<span style='color:red;border:1px solid black'>Нет кода</span><br>";
