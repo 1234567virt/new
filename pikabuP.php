@@ -29,7 +29,7 @@ $curl = curl_init();
            $price=parsePrice($product);
            imgLoad($img,$key);
           $market=ai($key);
-          $market=validationMarket('market');
+          $market=validationMarket($market);
           $ip=postIp($url,'ru');
            if($ip!='bad ip'){
             echo $key."/<i>".$product."</i>-<b>".$code."</b><i>.".$price['number'].$price['mer']."/</i>".$time."<br>".$market."-".$ip."<br>";

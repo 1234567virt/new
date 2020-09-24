@@ -119,17 +119,17 @@ function postIp($url,$domen='false'){
       }
       $ip=preg_replace('/[a-z]/i','',$ip);
       $lenght=strlen($ip);
-       if(7<$lenght && $lenght<17){
-         //return $lenght.'/';
-         $ip='bad ip';
+     if($lenght<6 && $lenght<18){
+        return 'bad ip';
       }
-      //else
-       if(preg_match('/^www/',$ip)==true || empty($ip)){
-          $ip='bad ip';
-      }
+      
+      elseif(preg_match('/^www/',$ip)==true || empty($ip)){
+         return 'bad ip';
+     }
       else{
-        //return $ip;
+        return $ip;
       }
-      return $ip;
 }
+
+
    ?>

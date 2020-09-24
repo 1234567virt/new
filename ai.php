@@ -124,7 +124,11 @@ function ai($img){
   curl_setopt($curlHandle, CURLOPT_SSL_VERIFYPEER, false);
   $response = curl_exec($curlHandle);
   curl_close($curlHandle);
-  return $response;
+  if(file_exists($filePath)){
+      unlink($filePath);
+  }
+  
+      return $response;
+  
 }
-
 ?>
