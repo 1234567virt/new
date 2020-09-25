@@ -5,11 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Текущий файл",
-            "type": "python",
+            "name": "Listen for XDebug",
+            "type": "php",
+            "request": "launch",
+            "port": 9000
+        },
+        {
+            "name": "Launch currently open script",
+            "type": "php",
             "request": "launch",
             "program": "${file}",
-            "console": "integratedTerminal"
+            "cwd": "${fileDirname}",
+            "port": 9000
         }
     ]
 }

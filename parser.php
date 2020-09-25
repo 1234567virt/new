@@ -24,31 +24,33 @@ for($i=1;$i<30;$i++)
       $name=$value->find(".thread-image")->attr('alt');
       $url=$value->find('.cept-merchant-link')->attr('href');
       $code=$value->find("input")->attr('value');
+       $name=preg_replace("/\\(.*?\\)|\\[.*?\\]|[0-9]{1,2}[:][0-9]{1,2}/s","",$name);
       if(!empty($name) && !empty($code)){
-          $time=$value->find(".hide--toW3 span")->text();
-          if(empty($time)){
-              $time=date('Y-m-d');
-          }
-          else{
-              $time=validationTime($time,'/','.');
-          }
-          $price=$value->find("span .thread-price")->text();
+        $time=$value->find(".hide--toW3 span")->text();
+        if(empty($time)){
+          $time=date('Y-m-d');
+        }
+        else{
+          $time=validationTime($time,'/','.');
+        }
+        $price=$value->find("span .thread-price")->text();
           $price=validation($price,0,-3);
-          $brend=$value->find(".link")->text();
-         (int)$price=str_replace(' ', '',$price);
-          $ip=postIp($url);
-          if($ip!='bad ip'){
-            echo $i.".".$key."/<h3 style='display:inline;'>".$name."</h3>-<span>".$price." rub</span><b> ".$code."/</b>"."/".$time."/".$ip." <i style='color:green'>Код найден</i><br>";
-            product('rub',$name,$code,$brend,$ip,$price,$time);
-          }
-          else{
-            echo $i.'- Некоректный ip';
-          }
+        $brend=$value->find(".link")->text();
+        (int)$price=str_replace(' ', '',$price);
+        $ip=postIp($url);
+        if($ip!='bad ip'){
+          echo $i.".".$key.'-'.$brend."/<h3 style='display:inline;'>-".$name."</h3>-<span>".$price." rub</span><b>".$code.
+          "</b>"."/".$time."/".$ip." <i style='color:green'>Код найден</i><br>";
+          product('rub',$name,$code,$brend,$ip,$price,$time);
+        }
+        else{
+          echo $i.'- Некоректный ip';
+        }
       }
       else{
-        echo $i.".".$key.'/fack- '.$name."/".$code."<span style='color:red;border:1px solid black'>Нет кода</span><br>";
+          echo $i.".".$key.'/fack- '.$name."/".$code."<span style='color:red;border:1px solid black'>Нет кода</span><br>";
       }
-   
+
     }
 }
 ?>

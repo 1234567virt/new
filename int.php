@@ -130,6 +130,6 @@ function postIp($url,$domen='false'){
         return $ip;
       }
 }
-
+//$link=connects('localhost','cv02328_sergey','q1Wsm321','cv02328_sergey');
 
    ?>
